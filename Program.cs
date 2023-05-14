@@ -1,8 +1,9 @@
-﻿// Написать программу, которая из имеющегося массива строк формирует новый массив из строк,
+﻿
+// Написать программу, которая из имеющегося массива строк формирует новый массив из строк,
 // длина которых меньше, либо равна 3 символам.
 int InputInt(string msg)
 {
-    System.Console.WriteLine($"{msg} -> ");
+    System.Console.Write($"{msg} -> ");
     return Convert.ToInt32(Console.ReadLine());
 }
 void Check(int num)
@@ -19,17 +20,22 @@ string[] CreateArray(int len)
     System.Console.WriteLine("Вводите с новой строчки наборы символов для очередного элемента массива:");
     for (int i = 0; i < len; i++)
     {
-        array[i] = Console.ReadLine();
+        array[i] = String.Empty + Console.ReadLine();
     }
     return array;
 }
 void GetFinalArray (string[] array)
 {
     int len = array.Length;
+    string[] someArray = new string[len];
     int count = 0;
     for (int i = 0; i < len; i++)
     {
-        if (array[i].Length <= 3) count += 1;
+        if (array[i].Length <= 3)
+        {
+            someArray[count] = array[i];
+            count += 1;
+        }
     }
     if (count == 0)
     {
@@ -37,26 +43,14 @@ void GetFinalArray (string[] array)
     }
     else
     {
-        int c = 0;
         string[] foundArray = new string[count];
-        for (int j = 0; j < array.Length; j++)
+        System.Console.WriteLine("Выбраны элементы не более чем из трёх символов. Вот массив сз них:");
+        for (int c = 0; c < count; c++) 
         {
-            if (array[j].Length <= 3)
-            {
-                foundArray[c] = array[j];
-                c++;
-            }
-
+            foundArray[c] = someArray[c];
+            System.Console.Write(foundArray[c] + "\t");
         }
-        for (c = 0; c < count; c++) System.Console.WriteLine(foundArray[c]);
     }
-}
-void PrintArray(string[] anyArray, string heading)
-{
-    System.Console.WriteLine(heading);
-    int len = anyArray.Length;
-    for (int n = 0; n < len; i++)
-    System.Console.WriteLine(anyArray[n]); 
 }
 int length = InputInt("Введите количество элементов в исходном массиве");
 Check(length);
