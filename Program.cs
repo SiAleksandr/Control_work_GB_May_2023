@@ -44,11 +44,11 @@ void GetFinalArray (string[] array)
     else
     {
         string[] foundArray = new string[count];
-        System.Console.WriteLine("Выбраны элементы не более чем из трёх символов. Вот массив сз них:");
+        System.Console.WriteLine("Выбраны элементы не более чем из трёх символов. Вот массив из них:");
         for (int c = 0; c < count; c++) 
         {
             foundArray[c] = someArray[c];
-            System.Console.Write(foundArray[c] + "\t");
+            System.Console.WriteLine(foundArray[c]);
         }
     }
 }
